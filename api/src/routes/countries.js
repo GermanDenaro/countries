@@ -1,6 +1,5 @@
 const { Router } = require('express');
-const countries = require('./countries');
-
+const { getAll } = require('../controllers/apiGet');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -9,4 +8,7 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-module.exports = { index: router, countries };
+router.get('/', getAll);
+router.get('/:id', getAll);
+
+module.exports = router;
